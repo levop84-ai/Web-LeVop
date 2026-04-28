@@ -15,7 +15,8 @@ Vytvoř funkční web, který bude obsahovat:
 - CSS jednotky velikosti: pro běžný text použij rem, pro nadpisy použij clamp
 - Základní JavaScript pro interaktivitu (na jemné oživení stránek)
 - Dbej na bezpečnost webu (nastavení bezpečnostní HTTP hlavičky, u kontaktního formuláře řeš ochranu proti spamu pomocí honeypot)
-- Nedávej do souboru .htaccess pokyny k přesměrování (to se řeší na úrovni hostingu)
+- Domény přesměrování (www → bez www, HTTP → HTTPS) se řeší na úrovni hostingu, ne v .htaccess
+- Do souboru .htaccess přidej mod_rewrite pravidla pro čisté URL: přesměrování `*.html` → `*` (301) a interní obsluha čistých URL na příslušný `.html` soubor
 
 ## Znalosti
 - Zajisti rychlé načítání a optimalizovaný výkon
@@ -854,7 +855,7 @@ Lišta je ve světlém stylu webu (ne tmavá):
 ```
 
 ### Text lišty
-> Tento web nepoužívá analytické ani reklamní sledování. Pro zobrazení písma a ikon načítáme zdroje z Google Fonts a Font Awesome CDN, čímž může dojít k přenosu vaší IP adresy na jejich servery. [Více informací](zasady-ochrany-osobnich-udaju.html)
+> Tento web nepoužívá analytické ani reklamní sledování. Pro zobrazení písma a ikon načítáme zdroje z Google Fonts a Font Awesome CDN, čímž může dojít k přenosu vaší IP adresy na jejich servery. [Více informací](/zasady-ochrany-osobnich-udaju)
 
 ### Logika (JS – `initCookieBanner()`)
 - Při načtení stránky: pokud `localStorage.getItem('cookieConsent') === 'accepted'` → lišta zůstane skrytá
@@ -871,14 +872,15 @@ Lišta je ve světlém stylu webu (ne tmavá):
 | `zasady-ochrany-osobnich-udaju.html` | Zásady ochrany osobních údajů (GDPR) |
 | `404.html` | Chybová stránka |
 
-### Pravidlo pro relativní URL na podstránkách
-Na všech podstránkách (mimo `index.html`) musí být odkazy na sekce homepage psány jako **relativní cesty**, nikoliv absolutní kotvy. Důvod: `/` funguje jen na serveru, ne lokálně.
+### Pravidlo pro URL na podstránkách
+Na všech podstránkách (mimo `index.html`) musí být interní odkazy psány jako **absolutní čisté cesty** (bez `.html`). Server obsluhuje čisté URL přes mod_rewrite v `.htaccess`.
 
-| Správně (funguje lokálně i na serveru) | Špatně (funguje jen na serveru) |
+| Správně | Špatně |
 |---|---|
-| `href="index.html"` | `href="/"` |
-| `href="index.html#sluzby"` | `href="/#sluzby"` |
-| `href="index.html#kontakt"` | `href="/#kontakt"` |
+| `href="/"` | `href="index.html"` |
+| `href="/#sluzby"` | `href="index.html#sluzby"` |
+| `href="/#kontakt"` | `href="index.html#kontakt"` |
+| `href="/zasady-ochrany-osobnich-udaju"` | `href="zasady-ochrany-osobnich-udaju.html"` |
 
 ---
 
@@ -900,7 +902,7 @@ Odkaz na stránku se nachází na třech místech v `index.html`:
 - Stránkový `<style>` blok s GDPR-specifickými styly
 
 #### Navigace
-- Identická s `index.html`, ale všechny kotvy vedou na `index.html#sekce` (relativní cesty)
+- Identická s `index.html`, ale všechny kotvy vedou na `/#sekce` (absolutní čisté cesty)
 
 #### Hero sekce (`.gdpr-hero`)
 - `.section-label`: „Právní dokumenty"
@@ -940,7 +942,7 @@ Zjednodušená verze patičky z `index.html`:
 
 ### SEO
 - `<meta name="robots" content="noindex, follow">` – záměrně nevylučovat z indexu přes `noindex`, ale neindexovat obsah
-- `<link rel="canonical" href="https://voparilova.cz/zasady-ochrany-osobnich-udaju.html">`
+- `<link rel="canonical" href="https://voparilova.cz/zasady-ochrany-osobnich-udaju">`
 
 ---
 
@@ -956,13 +958,13 @@ Zjednodušená verze patičky z `index.html`:
 - Stránkový `<style>` blok – viz Klíčové CSS níže
 
 #### Navigace
-- Identická s `zasady-ochrany-osobnich-udaju.html` (kotvy vedou na `index.html#sekce`)
+- Identická s `zasady-ochrany-osobnich-udaju.html` (kotvy vedou na `/#sekce`)
 
 #### Hlavní obsah (`.error-main`)
 - Obrázek: `Obrazky/levop_404.png` (jednorožec s lupou hledá čtyřlístek), třída `.error-img`
 - `<h1>`: „Jejda, tahle stránka neexistuje"
 - Odstavec s vysvětlením
-- Tlačítko „Zpět na hlavní stránku" (`btn btn-primary`, odkaz `index.html`)
+- Tlačítko „Zpět na hlavní stránku" (`btn btn-primary`, odkaz `/`)
 
 #### Patička
 - Identická s `zasady-ochrany-osobnich-udaju.html`
