@@ -1,0 +1,41 @@
+# Lenka Vopařilová – Technická online podpora a Webdesign
+
+> Prozatímní web virtuální asistentky a webdesignérky Lenky Vopařilové z Liberce.
+> Web je dočasný – hlavní stránka je ve výstavbě.
+
+## O webu
+Tato stránka slouží jako dočasný web Lenky Vopařilové, která poskytuje technickou online
+podporu drobným podnikatelům a zabývá se webdesignem. Hlavní web je ve výstavbě.
+
+## Nabízené služby
+
+### Technikálie (Virtuální asistentka)
+- E-mailing (SmartEmailing, MailerLite)
+- Prodejní nástroje (FAPI, SimpleShop)
+- Propojení nástrojů a automatizace
+
+### Webdesign (WordPress)
+- Nové weby
+- Landing pages a prodejní stránky
+- Nástroje: Divi, Elementor
+
+### Vibe Coding (weby pomocí AI)
+- Webové vizitky
+- Jednoduché weby bez nutnosti časté editace
+- Nástroje: Google Antigravity, Claude Code
+
+## Ceník
+- Virtuální asistentka: 600 Kč/hod
+- Malý web nebo webová vizitka: od 10 000 Kč
+- Rozvětvený web: od 20 000 Kč
+
+## Kontakt
+- Jméno: Lenka Vopařilová
+- E-mail: lenka@voparilova.cz
+- Sídlo: Vlnařská 837/3, 460 06 Liberec VI – Rochlice
+- IČO: 22644857
+- Web: https://voparilova.cz
+
+## Právní informace
+Zapsána v živnostenském rejstříku Magistrátu města Liberce podle §71 odst. 2
+živnostenského zákona. Není plátce DPH.

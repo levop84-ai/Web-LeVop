@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stránka nenalezena – Lenka Vopařilová</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- ===== Fonty ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Caveat:wght@600&family=Atma:wght@600&display=swap"
+    rel="stylesheet">
+
+  <!-- ===== Font Awesome ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- ===== Stylesheet ===== -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .error-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 24px 96px;
+    }
+
+    .error-img {
+      width: clamp(160px, 28vw, 260px);
+      height: auto;
+      margin-bottom: 28px;
+    }
+
+    .error-main h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+
+    .error-main p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #666;
+      max-width: 420px;
+      margin-bottom: 32px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+     NAVIGACE
+     ============================================================ -->
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Hlavní navigace">
+
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo" aria-label="Lenka Vopařilová – domovská stránka">
+        <img src="Obrazky/Levop_ctyrlistek_logo.png" alt="Čtyřlístek – logo Lenky Vopařilové" width="44" height="44">
+      </a>
+
+      <!-- Desktopové menu -->
+      <ul class="nav-menu" role="list">
+        <li><a href="index.html#sluzby">S čím můžu pomoci</a></li>
+        <li><a href="index.html#cenik">Za kolik</a></li>
+        <li><a href="index.html#o-mne">Kdo jsem</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+
+      <!-- Hamburger (mobil) -->
+      <button class="nav-hamburger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </nav>
+
+    <!-- Mobilní menu -->
+    <nav id="mobile-menu" class="nav-mobile-menu" aria-label="Mobilní navigace">
+      <a href="index.html#sluzby">S čím můžu pomoci</a>
+      <a href="index.html#cenik">Za kolik</a>
+      <a href="index.html#o-mne">Kdo jsem</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+  </header><!-- /header -->
+
+
+  <!-- ============================================================
+     HLAVNÍ OBSAH
+     ============================================================ -->
+  <main class="error-main" id="main-content">
+    <img src="Obrazky/levop_404.png" alt="Jednorožec hledá čtyřlístek lupou" class="error-img">
+    <h1>Jejda, tahle stránka neexistuje</h1>
+    <p>Vypadá to, že stránka, kterou hledáš, se ztratila – nebo možná ještě ani nevznikla. Zkus jestli najdeš, co
+      hledáš, na hlavní stránce.</p>
+    <a href="index.html" class="btn btn-primary">Zpět na hlavní stránku</a>
+  </main><!-- /main -->
+
+
+  <!-- ============================================================
+     PATIČKA
+     ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+
+      <div class="footer-grid">
+
+        <!-- Levý sloupec: Kontaktní a povinné údaje -->
+        <div class="footer-contact">
+          <h3>Kontaktní údaje</h3>
+
+          <address class="contact-details" style="font-style: normal;">
+            <div class="contact-item">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+              <span><strong>Lenka Vopařilová</strong></span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:lenka@voparilova.cz">lenka@voparilova.cz</a>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <span>Vlnařská 837/3, 460&nbsp;06 Liberec&nbsp;VI&nbsp;– Rochlice</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+              <span>IČO: 22644857</span>
+            </div>
+          </address>
+
+        </div><!-- /footer-contact -->
+
+        <!-- Pravý sloupec: Navigace -->
+        <div class="footer-form">
+          <h3>Navigace</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); margin-bottom: var(--sp-6);">
+            <li>
+              <a href="index.html#sluzby" style="font-size: 0.95rem; font-weight: 500; text-decoration: none;">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true" style="font-size: 0.75rem; margin-right: 6px; color: var(--clr-mid);"></i>
+                S čím můžu pomoci
+              </a>
+            </li>
+            <li>
+              <a href="index.html#cenik" style="font-size: 0.95rem; font-weight: 500; text-decoration: none;">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true" style="font-size: 0.75rem; margin-right: 6px; color: var(--clr-mid);"></i>
+                Za kolik
+              </a>
+            </li>
+            <li>
+              <a href="index.html#o-mne" style="font-size: 0.95rem; font-weight: 500; text-decoration: none;">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true" style="font-size: 0.75rem; margin-right: 6px; color: var(--clr-mid);"></i>
+                Kdo jsem
+              </a>
+            </li>
+            <li>
+              <a href="index.html#kontakt" style="font-size: 0.95rem; font-weight: 500; text-decoration: none;">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true" style="font-size: 0.75rem; margin-right: 6px; color: var(--clr-mid);"></i>
+                Kontakt
+              </a>
+            </li>
+          </ul>
+        </div><!-- /footer-form -->
+
+      </div><!-- /footer-grid -->
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2026</span> Lenka Vopařilová. Všechna práva vyhrazena.</p>
+        <p>
+          <a href="zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a>
+        </p>
+      </div>
+
+    </div><!-- /footer-inner -->
+  </footer><!-- /footer -->
+
+
+  <!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+  <script src="js/script.js" defer></script>
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>
