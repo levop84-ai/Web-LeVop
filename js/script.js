@@ -256,13 +256,14 @@ function showStatus(el, message, type) {
    COOKIE LIŠTA
    ============================================================ */
 function initCookieBanner() {
-  const banner    = document.getElementById('cookie-banner');
-  const acceptBtn = document.getElementById('cookie-accept');
+  const banner     = document.getElementById('cookie-banner');
+  const acceptBtn  = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
 
   if (!banner) return;
 
-  // Pokud uživatel už souhlasil, skryjeme lištu
-  if (localStorage.getItem('cookieConsent') === 'accepted') {
+  const consent = localStorage.getItem('cookieConsent');
+  if (consent === 'accepted' || consent === 'declined') {
     banner.classList.add('hidden');
     return;
   }
@@ -272,6 +273,13 @@ function initCookieBanner() {
   if (acceptBtn) {
     acceptBtn.addEventListener('click', () => {
       localStorage.setItem('cookieConsent', 'accepted');
+      banner.classList.add('hidden');
+    });
+  }
+
+  if (declineBtn) {
+    declineBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'declined');
       banner.classList.add('hidden');
     });
   }

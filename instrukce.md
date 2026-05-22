@@ -835,32 +835,94 @@ Všechny tři mají hover efekt `opacity: 0.65`.
 ### Kdy je potřeba
 Web nepoužívá analytické ani marketingové cookies. Lišta je přítomna z důvodu přenosu IP adresy uživatele na servery třetích stran při načítání externích CDN zdrojů (Google Fonts, Font Awesome přes cdnjs.cloudflare.com). Postačí **informační charakter** – není třeba řešit kategorie souhlasu.
 
-### Styl lišty
-Lišta je ve světlém stylu webu (ne tmavá):
+### Pozice a rozměry
+Lišta je umístěna v **pravém dolním rohu obrazovky** (ne celošířkově):
 
 ```css
 .cookie-banner {
-  background: var(--clr-bg);        /* bílé pozadí */
-  color: var(--clr-text);
-  border-top: 1px solid var(--clr-border);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: auto;
+  width: calc(100vw - var(--sp-6));
+  max-width: 860px;
+  border: 1px solid var(--clr-border);
+  border-bottom: none;
+  border-right: none;
+  border-radius: var(--radius-md) 0 0 0;   /* pouze levý horní roh */
   box-shadow: 0 -4px 24px rgba(0,0,0,0.07);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
 }
-.cookie-banner p { color: var(--clr-mid); font-size: 0.825rem; }
-.cookie-banner a { color: var(--clr-dark); text-decoration: none; font-weight: 500; }
+```
+
+### Tlačítka
+Lišta má **dvě tlačítka** v divu `.cookie-banner-actions`:
+- **Odmítnout** (`.btn-cookie.btn-cookie--outline`) – vlevo, průhledné pozadí, světlý okraj
+- **Přijmout** (`.btn-cookie`) – vpravo, tmavé pozadí, bílý text
+
+Hover efekt obou tlačítek je shodný: průhledné pozadí, tmavý okraj (`border-color: var(--clr-dark)`), `translateY(-1px)`.
+
+```css
 .cookie-banner .btn-cookie {
   background: var(--clr-dark); color: #fff;
   border: 2px solid var(--clr-dark); border-radius: var(--radius-pill);
-  /* hover: transparent bg, tmavý text, translateY(-1px) */
+  transition: background var(--transition), color var(--transition),
+              border-color var(--transition), transform var(--transition);
+  /* hover: transparent bg, tmavý text a okraj, translateY(-1px) */
+}
+.cookie-banner .btn-cookie--outline {
+  background: transparent; color: var(--clr-dark);
+  border-color: var(--clr-border);
+  /* hover: border-color: var(--clr-dark), translateY(-1px) */
+}
+.cookie-banner-actions {
+  display: flex; gap: var(--sp-2); justify-content: flex-end;
+}
+```
+
+### Mobilní zobrazení (≤ 640 px)
+Na mobilech je lišta **celošířková**, layout se přepne na sloupcový:
+
+```css
+@media (max-width: 640px) {
+  .cookie-banner {
+    left: 0; right: 0; width: 100%; max-width: 100%;
+    border-radius: 0; border-left: none; border-right: none;
+    flex-direction: column; flex-wrap: nowrap;
+    align-items: flex-start; justify-content: flex-start;
+  }
+  .cookie-banner p    { flex: 0 0 auto; width: 100%; }
+  .cookie-banner-actions { flex: 0 0 auto; width: 100%; justify-content: flex-end; }
 }
 ```
 
 ### Text lišty
 > Tento web nepoužívá analytické ani reklamní sledování. Pro zobrazení písma a ikon načítáme zdroje z Google Fonts a Font Awesome CDN, čímž může dojít k přenosu vaší IP adresy na jejich servery. [Více informací](/zasady-ochrany-osobnich-udaju)
 
+### HTML struktura
+```html
+<div id="cookie-banner" class="cookie-banner hidden" role="region" aria-label="Informace o cookies">
+  <p>
+    Tento web nepoužívá analytické ani reklamní sledování. ...
+    <a href="/zasady-ochrany-osobnich-udaju">Více informací</a>
+  </p>
+  <div class="cookie-banner-actions">
+    <button id="cookie-decline" class="btn-cookie btn-cookie--outline">Odmítnout</button>
+    <button id="cookie-accept"  class="btn-cookie">Přijmout</button>
+  </div>
+</div>
+```
+
 ### Logika (JS – `initCookieBanner()`)
-- Při načtení stránky: pokud `localStorage.getItem('cookieConsent') === 'accepted'` → lišta zůstane skrytá
+- Při načtení stránky: pokud `localStorage.getItem('cookieConsent')` je `'accepted'` **nebo** `'declined'` → lišta zůstane skrytá
 - Jinak: lišta se zobrazí (odstraní třídu `hidden`)
-- Klik na tlačítko: uloží `localStorage.setItem('cookieConsent', 'accepted')` a skryje lištu
+- Klik na **Přijmout**: uloží `cookieConsent = 'accepted'` a skryje lištu
+- Klik na **Odmítnout**: uloží `cookieConsent = 'declined'` a skryje lištu
 
 ---
 
@@ -899,7 +961,7 @@ Odkaz na stránku se nachází na třech místech v `index.html`:
 #### `<head>`
 - `<meta name="robots" content="noindex, follow">` – stránka není indexována
 - Stejné fonty a Font Awesome jako `index.html`
-- Stránkový `<style>` blok s GDPR-specifickými styly
+- Stránkový `<style>` blok s GDPR-specifickými styly (viz níže)
 
 #### Navigace
 - Identická s `index.html`, ale všechny kotvy vedou na `/#sekce` (absolutní čisté cesty)
@@ -907,12 +969,17 @@ Odkaz na stránku se nachází na třech místech v `index.html`:
 #### Hero sekce (`.gdpr-hero`)
 - `.section-label`: „Právní dokumenty"
 - `<h1>`: „Zásady ochrany osobních údajů"
-- Bez data účinnosti (je uvedeno jen na konci dokumentu)
 - `border-bottom: 1px solid var(--clr-border)` jako oddělovač
 
 #### Obsah (`.gdpr-content`)
-- Tlačítko „Zpět na hlavní stránku" (`btn btn-secondary btn-sm`) **nahoře i dole** za posledním oddílem
-- Obsah je centrován na šířku **860 px** (`max-width: 860px; margin: 0 auto`) – stejná osa pro layout, hero i tlačítka zpět
+Pořadí prvků uvnitř `.container`:
+1. Tlačítko „Zpět na hlavní stránku" (`btn btn-secondary btn-sm`) – **nahoře**
+2. `.gdpr-intro` – 3 úvodní odstavce (kdo jsem správce, odkaz na GDPR zákon, účel dokumentu); adresa **voparilova.cz** v prvním odstavci je `<strong>`
+3. `.gdpr-toc` – tabulka obsahu (světle šedý blok, nadpis „Obsah", seznam I.–XI. s `.toc-num`)
+4. `.gdpr-layout` – grid sekcí I.–XI.
+5. Tlačítko „Zpět na hlavní stránku" – **dole**
+
+Veškerý obsah centrován na **860 px** (`max-width: 860px; margin: 0 auto`).
 
 #### Struktura oddílů (`.gdpr-section`)
 - Velké číslo oddílu (`.gdpr-section-num`): `font-size: clamp(2rem, 4vw, 3.5rem)`, `color: var(--clr-border)` – světle šedé, dekorativní
@@ -920,9 +987,47 @@ Odkaz na stránku se nachází na třech místech v `index.html`:
 - `<ol>` s automatickým číslováním (CSS counter `gdpr-item`), každá `<li>` začíná číslem v šedé barvě
 - Vnořené odrážky jako `<ul>` s `•` pseudoprvkem
 
-#### Speciální prvky obsahu
-- **Kontaktní blok** (bod 2 oddílu I.): `.gdpr-contact-block` – světle šedé pozadí, řádky `Adresa:` / `E-mail:` s tučným popiskem a hodnotou
-- **Box účinnosti** (konec oddílu VIII.): `.gdpr-effectivity` – světle šedé pozadí, ikona `fa-regular fa-calendar-check`, text s datem tučně
+#### Přehled oddílů (I.–XI.)
+
+| Oddíl | Nadpis | Typ obsahu |
+|---|---|---|
+| I. | Správce osobních údajů | `.gdpr-contact-block` (jméno, rejstřík, IČO, sídlo, e-mail) |
+| II. | Zdroj osobních údajů | `.gdpr-text` (prostý odstavec) |
+| III. | Kategorie osobních údajů a požadavek na jejich poskytnutí | `<ol>` – 4 položky |
+| IV. | Účely a doba zpracování | 5 podsekci A–E (`.gdpr-subsection`) |
+| V. | Automatizované rozhodování a profilování | `<ol>` – 1 položka |
+| VI. | Cookies | `<ol>` – 3 položky |
+| VII. | Příjemci osobních údajů | `<ol>` – 5 položek; položka 3 obsahuje `.gdpr-alpha-list` a–m |
+| VIII. | Předávání osobních údajů do třetí země nebo mezinárodní organizaci | `.gdpr-text` (prostý odstavec, zmínka o USA / Data Privacy Framework List) |
+| IX. | Zabezpečení osobních údajů | `<ol>` – 3 položky; položka 2 obsahuje `<ul>` s opatřeními |
+| X. | Vaše práva | `<ol>` – 2 položky; položka 1 obsahuje `.gdpr-alpha-list` a–h s tučnými názvy práv |
+| XI. | Závěrečná ustanovení | `<ol>` – 2 položky + `.gdpr-effectivity` (datum 1. 5. 2026) |
+
+#### Podsekce v oddíle IV. (`.gdpr-subsection`)
+Oddíl IV. se člení na 5 podsekci oddělených přerušovanou čarou:
+
+| Podsekce | Nadpis | Počet položek |
+|---|---|---|
+| A | Zpracování pro účely uzavření a splnění smlouvy | 3 |
+| B | Zpracování pro účely splnění právních povinností | 3 |
+| C | Zpracování pro účely přímého marketingu | 1 |
+| D | Zpracování pro účely ochrany práv a vymáhání nároků | 3 |
+| E | Zpracování na základě Vašeho souhlasu | 3 (položka 1 obsahuje `.gdpr-alpha-list` a–e) |
+
+#### Speciální CSS třídy (stránkový `<style>`)
+
+| Třída | Popis |
+|---|---|
+| `.gdpr-intro` | Kontejner úvodních odstavců, `max-width: 860px` |
+| `.gdpr-toc` | Tabulka obsahu, světle šedé pozadí, zaoblené rohy |
+| `.toc-num` | Číslo řádku v TOC (`font-weight: 600; color: var(--clr-mid); min-width: 42px`) |
+| `.gdpr-subsection` | Podsekce v oddíle IV., oddělena `border-top: 1px dashed` |
+| `.gdpr-subsection-title` | Nadpis podsekce – `0.82rem`, uppercase, `var(--clr-mid)` |
+| `.gdpr-text` | Prostý odstavec bez `<ol>` (oddíly II. a VIII.) |
+| `.gdpr-alpha-list` | Seznam s písmeny a), b)… – ruší výchozí bullet (`::before: none`) |
+| `.alpha-label` | Písmeno v alpha-listu (`font-weight: 600; min-width: 26px`) |
+| `.gdpr-contact-block` | Kontaktní blok v oddíle I. – světle šedé pozadí, řádky s popiskem |
+| `.gdpr-effectivity` | Box účinnosti na konci oddílu XI. – světle šedé pozadí, ikona kalendáře |
 
 #### Patička (`.site-footer`)
 Zjednodušená verze patičky z `index.html`:
@@ -941,7 +1046,7 @@ Zjednodušená verze patičky z `index.html`:
 ```
 
 ### SEO
-- `<meta name="robots" content="noindex, follow">` – záměrně nevylučovat z indexu přes `noindex`, ale neindexovat obsah
+- `<meta name="robots" content="noindex, follow">`
 - `<link rel="canonical" href="https://voparilova.cz/zasady-ochrany-osobnich-udaju">`
 
 ---

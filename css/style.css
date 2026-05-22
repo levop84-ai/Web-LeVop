@@ -1501,12 +1501,15 @@ section.alt-bg {
 .cookie-banner {
   position: fixed;
   bottom: 0;
-  left: 0;
   right: 0;
+  left: auto;
   z-index: 200;
   background: var(--clr-bg);
   color: var(--clr-text);
-  border-top: 1px solid var(--clr-border);
+  border: 1px solid var(--clr-border);
+  border-bottom: none;
+  border-right: none;
+  border-radius: var(--radius-md) 0 0 0;
   box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.07);
   padding: var(--sp-3) var(--sp-4);
   display: flex;
@@ -1514,6 +1517,8 @@ section.alt-bg {
   align-items: center;
   justify-content: space-between;
   gap: var(--sp-3);
+  width: calc(100vw - var(--sp-6));
+  max-width: 860px;
   animation: fadeInUp 0.4s ease;
 }
 
@@ -1545,7 +1550,7 @@ section.alt-bg {
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
-  transition: background var(--transition), color var(--transition), transform var(--transition);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
   flex-shrink: 0;
 }
 
@@ -1555,8 +1560,54 @@ section.alt-bg {
   transform: translateY(-1px);
 }
 
+.cookie-banner .btn-cookie--outline {
+  background: transparent;
+  color: var(--clr-dark);
+  border-color: var(--clr-border);
+}
+
+.cookie-banner .btn-cookie--outline:hover {
+  background: transparent;
+  color: var(--clr-dark);
+  border-color: var(--clr-dark);
+  transform: translateY(-1px);
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: var(--sp-2);
+  justify-content: flex-end;
+}
+
 .cookie-banner.hidden {
   display: none;
+}
+
+@media (max-width: 640px) {
+  .cookie-banner {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .cookie-banner p {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .cookie-banner-actions {
+    flex: 0 0 auto;
+    width: 100%;
+    justify-content: flex-end;
+  }
 }
 
 /* ============================================================

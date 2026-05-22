@@ -37,7 +37,7 @@
       border-bottom: 1px solid var(--clr-border);
     }
 
-    .gdpr-hero .container > * {
+    .gdpr-hero .container>* {
       max-width: 860px;
       margin-left: auto;
       margin-right: auto;
@@ -60,7 +60,7 @@
       margin: 0 auto;
     }
 
-    /* Sekce (I. – VIII.) */
+    /* Sekce (I. – XI.) */
     .gdpr-section {
       border-top: 1px solid var(--clr-border);
       padding-top: var(--sp-6);
@@ -104,7 +104,7 @@
       counter-reset: gdpr-item;
     }
 
-    .gdpr-section ol > li {
+    .gdpr-section ol>li {
       counter-increment: gdpr-item;
       display: flex;
       gap: var(--sp-2);
@@ -113,7 +113,7 @@
       color: var(--clr-text);
     }
 
-    .gdpr-section ol > li::before {
+    .gdpr-section ol>li::before {
       content: counter(gdpr-item) ".";
       font-weight: 600;
       color: var(--clr-mid);
@@ -122,14 +122,14 @@
       padding-top: 1px;
     }
 
-    .gdpr-section ol > li ul {
+    .gdpr-section ol>li ul {
       margin-top: var(--sp-1);
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
-    .gdpr-section ol > li ul li {
+    .gdpr-section ol>li ul li {
       display: flex;
       align-items: flex-start;
       gap: var(--sp-1);
@@ -137,7 +137,7 @@
       line-height: 1.75;
     }
 
-    .gdpr-section ol > li ul li::before {
+    .gdpr-section ol>li ul li::before {
       content: "•";
       color: var(--clr-mid);
       flex-shrink: 0;
@@ -202,6 +202,116 @@
       max-width: 860px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    /* Úvodní text */
+    .gdpr-intro {
+      max-width: 860px;
+      margin: 0 auto var(--sp-6);
+    }
+
+    .gdpr-intro p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--clr-text);
+      margin-bottom: var(--sp-3);
+    }
+
+    .gdpr-intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Obsah (TOC) */
+    .gdpr-toc {
+      background: var(--clr-light);
+      border-radius: var(--radius-md);
+      padding: var(--sp-4) var(--sp-5);
+      margin: 0 auto var(--sp-8);
+      max-width: 860px;
+    }
+
+    .gdpr-toc h2 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--clr-mid);
+      margin-bottom: var(--sp-3);
+    }
+
+    .gdpr-toc ol {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .gdpr-toc ol li {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--clr-text);
+      display: flex;
+      gap: var(--sp-2);
+    }
+
+    .gdpr-toc ol li::before {
+      display: none;
+    }
+
+    .toc-num {
+      font-weight: 600;
+      color: var(--clr-mid);
+      min-width: 42px;
+      flex-shrink: 0;
+    }
+
+    /* Podsekce (A, B, C…) v sekci IV */
+    .gdpr-subsection {
+      margin-top: var(--sp-5);
+      padding-top: var(--sp-4);
+      border-top: 1px dashed var(--clr-border);
+    }
+
+    .gdpr-subsection:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: var(--sp-2);
+    }
+
+    .gdpr-subsection-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--clr-mid);
+      margin-bottom: var(--sp-3);
+    }
+
+    /* Čistý odstavec (bez ol) v sekci */
+    .gdpr-text {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--clr-text);
+      margin-top: var(--sp-2);
+    }
+
+    /* Seznam s písmeny a), b)… */
+    .gdpr-alpha-list li::before {
+      display: none !important;
+      content: none !important;
+    }
+
+    .gdpr-alpha-list li {
+      display: flex !important;
+      align-items: flex-start;
+      gap: var(--sp-1);
+    }
+
+    .alpha-label {
+      font-weight: 600;
+      color: var(--clr-mid);
+      flex-shrink: 0;
+      min-width: 26px;
     }
 
     @media (min-width: 900px) {
@@ -288,197 +398,486 @@
           </a>
         </div>
 
+        <div class="gdpr-intro">
+          <p>Níže naleznete zásady zpracování osobních údajů, které mně jako správci poskytnete, pokud navštívíte mé
+            webové stránky dostupné na internetové adrese <strong>voparilova.cz</strong>, dále pokud jste mými zákazníky nebo zájemci o
+            mé produkty či služby.</p>
+          <p>Osobní údaje zpracovávám v souladu s platnými a účinnými právními předpisy, zejména v souladu s nařízením
+            Evropského parlamentu a Rady (EU) 2016/679 – obecné nařízení o ochraně osobních údajů (dále jen „GDPR") a v
+            souladu se zákonem č. 110/2019 Sb., o zpracování osobních údajů.</p>
+          <p>Účelem tohoto dokumentu je seznámit Vás s tím, jak bude s Vašimi osobními údaji nakládáno a informovat Vás
+            o Vašich právech.</p>
+        </div>
+
+        <div class="gdpr-toc">
+          <h2>Obsah</h2>
+          <ol>
+            <li><span class="toc-num">I.</span> Správce osobních údajů – mé identifikační a kontaktní údaje</li>
+            <li><span class="toc-num">II.</span> Zdroj osobních údajů – odkud získám k Vašim osobním údajům přístup</li>
+            <li><span class="toc-num">III.</span> Kategorie osobních údajů a požadavek na jejich poskytnutí – které
+              osobní údaje o Vás zpracovávám, zda máte povinnost mi je poskytnout a jaký je důsledek jejich neposkytnutí
+            </li>
+            <li><span class="toc-num">IV.</span> Účely a doba zpracování – k jakým účelům a po jakou dobu Vaše osobní
+              údaje zpracovávám a co mě k tomu opravňuje</li>
+            <li><span class="toc-num">V.</span> Automatizované rozhodování a profilování – zda z mé strany dochází k
+              automatizovanému individuálnímu rozhodování nebo k profilování</li>
+            <li><span class="toc-num">VI.</span> Cookies – které cookies používám</li>
+            <li><span class="toc-num">VII.</span> Příjemci osobních údajů – komu Vaše osobní údaje zpřístupňuji</li>
+            <li><span class="toc-num">VIII.</span> Předávání osobních údajů do třetí země nebo mezinárodní organizaci –
+              zda Vaše osobní údaje budou předány do země mimo Evropskou unii</li>
+            <li><span class="toc-num">IX.</span> Zabezpečení osobních údajů – která technická a organizační opatření k
+              zabezpečení Vašich osobních údajů jsem přijala</li>
+            <li><span class="toc-num">X.</span> Vaše práva – jaká máte práva ve vztahu ke zpracování osobních údajů</li>
+            <li><span class="toc-num">XI.</span> Závěrečná ustanovení – účinnost tohoto dokumentu a možnost jeho změny
+            </li>
+          </ol>
+        </div>
+
         <div class="gdpr-layout">
 
-          <!-- I. Základní ustanovení -->
+          <!-- I. Správce osobních údajů -->
           <div class="gdpr-section">
             <div class="gdpr-section-header">
               <span class="gdpr-section-num" aria-hidden="true">I.</span>
-              <h2>Základní ustanovení</h2>
+              <h2>Správce osobních údajů</h2>
             </div>
-            <ol>
-              <li>
-                <span class="li-body">Správcem osobních údajů podle čl.&nbsp;4 bod&nbsp;7 nařízení Evropského parlamentu a Rady (EU) 2016/679 o ochraně fyzických osob v souvislosti se zpracováním osobních údajů a o volném pohybu těchto údajů (dále jen: „GDPR") je <strong>Lenka Vopařilová, IČ&nbsp;22644857</strong> se sídlem Vlnařská&nbsp;837/3, 460&nbsp;06 Liberec&nbsp;VI&nbsp;– Rochlice (dále jen: „správce").</span>
-              </li>
-              <li>
-                <span class="li-body">
-                  Kontaktní údaje správce jsou:
-                  <div class="gdpr-contact-block">
-                    <div class="contact-row">
-                      <span class="contact-label">Adresa:</span>
-                      <span>Vlnařská&nbsp;837/3, 460&nbsp;06 Liberec&nbsp;VI&nbsp;– Rochlice</span>
-                    </div>
-                    <div class="contact-row">
-                      <span class="contact-label">E-mail:</span>
-                      <a href="mailto:lenka@voparilova.cz">lenka@voparilova.cz</a>
-                    </div>
-                  </div>
-                </span>
-              </li>
-              <li>
-                <span class="li-body">Osobními údaji se rozumí veškeré informace o identifikované nebo identifikovatelné fyzické osobě; identifikovatelnou fyzickou osobou je fyzická osoba, kterou lze přímo či nepřímo identifikovat, zejména odkazem na určitý identifikátor, například jméno, identifikační číslo, lokační údaje, síťový identifikátor nebo na jeden či více zvláštních prvků fyzické, fyziologické, genetické, psychické, ekonomické, kulturní nebo společenské identity této fyzické osoby.</span>
-              </li>
-              <li>
-                <span class="li-body">Správce nejmenoval pověřence pro ochranu osobních údajů.</span>
-              </li>
-            </ol>
+            <div class="gdpr-contact-block">
+              <div class="contact-row">
+                <span class="contact-label" style="min-width: 80px;">Jméno:</span>
+                <span><strong>Lenka Vopařilová</strong></span>
+              </div>
+              <div class="contact-row">
+                <span class="contact-label" style="min-width: 80px;">Rejstřík:</span>
+                <span>Zapsaná v živnostenském rejstříku Magistrátu města Liberce podle §71 odst. 2 živnostenského
+                  zákona</span>
+              </div>
+              <div class="contact-row">
+                <span class="contact-label" style="min-width: 80px;">IČO:</span>
+                <span>22644857</span>
+              </div>
+              <div class="contact-row">
+                <span class="contact-label" style="min-width: 80px;">Sídlo:</span>
+                <span>Vlnařská 837/3, 460&nbsp;06 Liberec&nbsp;VI&nbsp;– Rochlice</span>
+              </div>
+              <div class="contact-row">
+                <span class="contact-label" style="min-width: 80px;">E-mail:</span>
+                <a href="mailto:lenka@voparilova.cz">lenka@voparilova.cz</a>
+              </div>
+            </div>
           </div>
 
-          <!-- II. Zdroje a kategorie -->
+          <!-- II. Zdroj osobních údajů -->
           <div class="gdpr-section">
             <div class="gdpr-section-header">
               <span class="gdpr-section-num" aria-hidden="true">II.</span>
-              <h2>Zdroje a kategorie zpracovávaných osobních údajů</h2>
+              <h2>Zdroj osobních údajů</h2>
             </div>
-            <ol>
-              <li>
-                <span class="li-body">Správce zpracovává osobní údaje, které jste mu poskytl/a nebo osobní údaje, které správce získal na základě plnění Vaší objednávky.</span>
-              </li>
-              <li>
-                <span class="li-body">Správce zpracovává Vaše identifikační a kontaktní údaje a údaje nezbytné pro plnění smlouvy.</span>
-              </li>
-            </ol>
+            <p class="gdpr-text">Zpracovávám osobní údaje, které získám přímo od Vás. Vaše osobní údaje získávám tím, že
+              navštívíte mé webové stránky, že na mých webových stránkách vyplníte a odešlete kontaktní formulář nebo
+              jiným způsobem (např. tím, že mi je poskytnete e-mailem, telefonicky, v průběhu videohovoru,
+              prostřednictvím sociálních sítí nebo při osobním jednání).</p>
           </div>
 
-          <!-- III. Zákonný důvod a účel -->
+          <!-- III. Kategorie osobních údajů a požadavek na jejich poskytnutí -->
           <div class="gdpr-section">
             <div class="gdpr-section-header">
               <span class="gdpr-section-num" aria-hidden="true">III.</span>
-              <h2>Zákonný důvod a účel zpracování osobních údajů</h2>
+              <h2>Kategorie osobních údajů a požadavek na jejich poskytnutí</h2>
             </div>
             <ol>
               <li>
-                <span class="li-body">
-                  Zákonným důvodem zpracování osobních údajů je:
-                  <ul>
-                    <li>plnění smlouvy mezi Vámi a správcem podle čl.&nbsp;6 odst.&nbsp;1 písm.&nbsp;b) GDPR.</li>
-                  </ul>
-                </span>
+                <span class="li-body">V nezbytném rozsahu o Vás zpracovávám zejména následující běžné osobní údaje,
+                  pokud mi je zpřístupníte: jméno a příjmení, IČO, DIČ, adresa bydliště, adresa sídla, platební údaje,
+                  telefonní číslo, e-mailová adresa, identifikátor jiné formy komunikace na dálku, IP adresa, informace
+                  o Vámi objednaných produktech či službách a další informace, které mi v průběhu naší komunikace či
+                  spolupráce poskytnete (údaje týkající se Vašeho rodinného stavu, osobních a majetkových poměrů
+                  apod.).</span>
               </li>
               <li>
-                <span class="li-body">
-                  Účelem zpracování osobních údajů je:
-                  <ul>
-                    <li>vyřízení Vaší objednávky a výkon práv a povinností vyplývajících ze smluvního vztahu mezi Vámi a správcem; při objednávce jsou vyžadovány osobní údaje, které jsou nutné pro úspěšné vyřízení objednávky (jméno a adresa, kontakt), poskytnutí osobních údajů je nutným požadavkem pro uzavření a plnění smlouvy, bez poskytnutí osobních údajů není možné smlouvu uzavřít či jí ze strany správce plnit.</li>
-                  </ul>
-                </span>
+                <span class="li-body">Pokud mi umožníte zveřejnit Vaši referenci, a případně mi také poskytnete svou
+                  fotografii či videozáznam, zpracovávám o Vás rovněž osobní údaje uvedené v referenci a příslušnou
+                  fotografii či videozáznam. Pokud využijete možnosti přihlášení, diskuze, hodnocení nebo sdílení
+                  prostřednictvím sociálních sítí (Facebook, Instagram, YouTube, příp. další), zpracovávám o Vás také
+                  informace uvedené ve Vašem příspěvku či komentáři a veřejné informace na Vašem profilu v příslušné
+                  sociální síti (zejm. jméno a příjmení, fotografie, věková kategorie a další veřejné informace podle
+                  Vašeho nastavení).</span>
               </li>
               <li>
-                <span class="li-body">Ze strany správce nedochází k automatickému individuálnímu rozhodování ve smyslu čl.&nbsp;22 GDPR. S takovým zpracováním jste poskytl/a svůj výslovný souhlas.</span>
+                <span class="li-body">Poskytnutí kategorie běžných osobních údajů uvedených v odstavci 1 tohoto článku
+                  je nezbytné pro vzájemnou komunikaci nebo pro uzavření a splnění smlouvy; v případě jejich
+                  neposkytnutí tedy nebude možné vzájemně komunikovat nebo uzavřít a splnit smlouvu. V případech, kdy
+                  zpracování osobních údajů je založeno na Vašem souhlasu, závisí pouze na Vašem rozhodnutí, zda mi své
+                  osobní údaje poskytnete či nikoli.</span>
+              </li>
+              <li>
+                <span class="li-body">Zvláštní kategorie osobních údajů (citlivé údaje) o Vás zpracovávám jen tehdy,
+                  pokud mi tyto údaje v průběhu naší spolupráce dobrovolně sdělíte a jen s Vaším výslovným souhlasem.
+                  Jedná se o osobní údaje, které vypovídají o rasovém či etnickém původu, politických názorech,
+                  náboženském vyznání či filozofickém přesvědčení, členství v odborech, zdravotním stavu, sexuálním
+                  životě nebo sexuální orientaci.</span>
               </li>
             </ol>
           </div>
 
-          <!-- IV. Doba uchovávání -->
+          <!-- IV. Účely a doba zpracování -->
           <div class="gdpr-section">
             <div class="gdpr-section-header">
               <span class="gdpr-section-num" aria-hidden="true">IV.</span>
-              <h2>Doba uchovávání údajů</h2>
+              <h2>Účely a doba zpracování</h2>
             </div>
-            <ol>
-              <li>
-                <span class="li-body">
-                  Správce uchovává osobní údaje:
-                  <ul>
-                    <li>po dobu nezbytnou k výkonu práv a povinností vyplývajících ze smluvního vztahu mezi Vámi a správcem a uplatňování nároků z těchto smluvních vztahů (po dobu 15&nbsp;let od ukončení smluvního vztahu).</li>
-                  </ul>
-                </span>
-              </li>
-              <li>
-                <span class="li-body">Po uplynutí doby uchovávání osobních údajů správce osobní údaje vymaže.</span>
-              </li>
-            </ol>
+
+            <div class="gdpr-subsection">
+              <h3 class="gdpr-subsection-title">A. Zpracování osobních údajů pro účely uzavření a splnění smlouvy</h3>
+              <ol>
+                <li>
+                  <span class="li-body">Vaše osobní údaje zpracovávám pro účely uzavření smlouvy a splnění mezi námi
+                    uzavřené smlouvy (vzájemná komunikace před i po uzavření smlouvy, dodání objednaného produktu nebo
+                    služby, uskutečnění platby). K tomuto účelu zpracovávám Vaše běžné osobní údaje uvedené v
+                    čl.&nbsp;III odst.&nbsp;1 výše a s Vaším výslovným souhlasem i zvláštní kategorie osobních údajů
+                    (citlivé údaje) uvedené v čl.&nbsp;III odst.&nbsp;4 výše.</span>
+                </li>
+                <li>
+                  <span class="li-body">Právním titulem (oprávněním) pro zpracování osobních údajů je splnění smlouvy
+                    uzavřené mezi námi a provedení opatření přijatých před uzavřením smlouvy na Vaši žádost.</span>
+                </li>
+                <li>
+                  <span class="li-body">K tomuto účelu Vaše osobní údaje zpracovávám po dobu trvání smluvního vztahu
+                    mezi námi a po jeho skončení pak některé Vaše osobní údaje dále zpracovávám za jinými účely (viz
+                    písmena B až F níže).</span>
+                </li>
+              </ol>
+            </div>
+
+            <div class="gdpr-subsection">
+              <h3 class="gdpr-subsection-title">B. Zpracování osobních údajů pro účely splnění právních povinností</h3>
+              <ol>
+                <li>
+                  <span class="li-body">Osobní údaje zpracovávám dále pro účely splnění právních povinností, které se na
+                    mě vztahují (např. zákonné povinnosti v oblasti daní). K tomuto účelu zpracovávám tyto Vaše osobní
+                    údaje: jméno a příjmení, IČO, DIČ, adresa bydliště, adresa sídla, platební údaje a informace o Vámi
+                    objednaných produktech či službách.</span>
+                </li>
+                <li>
+                  <span class="li-body">Právním titulem (oprávněním) pro zpracování osobních údajů je tedy splnění
+                    právní povinnosti, která se na mě vztahuje.</span>
+                </li>
+                <li>
+                  <span class="li-body">K tomuto účelu Vaše osobní údaje zpracovávám po dobu stanovenou obecně závaznými
+                    právními předpisy.</span>
+                </li>
+              </ol>
+            </div>
+
+            <div class="gdpr-subsection">
+              <h3 class="gdpr-subsection-title">C. Zpracování osobních údajů pro účely přímého marketingu</h3>
+              <ol>
+                <li>
+                  <span class="li-body">Vaše osobní údaje nezpracovávám pro účely přímého marketingu (zasílání
+                    obchodních sdělení, newsletterů apod.), jelikož v současnosti neprovozuji přímý marketing.</span>
+                </li>
+              </ol>
+            </div>
+
+            <div class="gdpr-subsection">
+              <h3 class="gdpr-subsection-title">D. Zpracování osobních údajů pro účely ochrany práv a vymáhání nároků
+              </h3>
+              <ol>
+                <li>
+                  <span class="li-body">Osobní údaje zpracovávám i pro účely ochrany našich práv a vymáhání právních
+                    nároků (zejm. z uzavřených smluv nebo způsobené újmy). K tomuto účelu zpracovávám Vaše osobní údaje
+                    z uzavřených smluv a naší vzájemné komunikace.</span>
+                </li>
+                <li>
+                  <span class="li-body">Právním titulem (oprávněním) pro zpracování osobních údajů je můj oprávněný
+                    zájem.</span>
+                </li>
+                <li>
+                  <span class="li-body">K tomuto účelu Vaše osobní údaje zpracovávám po dobu trvání smluvního vztahu a
+                    následující 4 roky po jeho ukončení, nebo po dobu 4 let od našeho posledního kontaktu, pokud k
+                    uzavření smlouvy nedošlo, a v případě vzniku sporu rovněž po celou dobu trvání sporu až do jeho
+                    pravomocného skončení a uspokojení všech nároků.</span>
+                </li>
+              </ol>
+            </div>
+
+            <div class="gdpr-subsection">
+              <h3 class="gdpr-subsection-title">E. Zpracování osobních údajů na základě Vašeho souhlasu</h3>
+              <ol>
+                <li>
+                  <span class="li-body">
+                    Na základě Vašeho souhlasu budu Vaše osobní údaje zpracovávat k následujícím účelům:
+                    <ul class="gdpr-alpha-list">
+                      <li><span class="alpha-label">a)</span> <span>zasílání newsletterů, informací o novinkách, mých
+                          produktech a službách a jiných obchodních sdělení, pokud nejste mým zákazníkem;</span></li>
+                      <li><span class="alpha-label">b)</span> <span>zasílání obchodních sdělení týkajících se třetích
+                          osob;</span></li>
+                      <li><span class="alpha-label">c)</span> <span>analýza Vašich preferencí a zájmů, zlepšování mých
+                          webových stránek a cílení reklamy;</span></li>
+                      <li><span class="alpha-label">d)</span> <span>zveřejnění Vaší reference na mých webových
+                          stránkách, sociálních sítích či v jiných propagačních materiálech;</span></li>
+                      <li><span class="alpha-label">e)</span> <span>diskuze, hodnocení nebo sdílení informací
+                          prostřednictvím sociálních sítí.</span></li>
+                    </ul>
+                  </span>
+                </li>
+                <li>
+                  <span class="li-body">Souhlas mi můžete udělit např. prostřednictvím vyplnění a odeslání kontaktního
+                    formuláře na mých webových stránkách, v průběhu individuální komunikace (např. e-mailem), v listinné
+                    podobě, vložením příspěvku, komentáře nebo reakce na příspěvek či komentář v sociální síti, případně
+                    jiným způsobem. Před udělením souhlasu Vás budu informovat, které osobní údaje budu na základě
+                    Vašeho souhlasu zpracovávat a k jakému konkrétnímu účelu zpracování se bude Váš souhlas
+                    vztahovat.</span>
+                </li>
+                <li>
+                  <span class="li-body">Svůj souhlas můžete kdykoli odvolat kliknutím na příslušný odkaz, který najdete
+                    v každém zaslaném e-mailu, nebo tím, že mi odvolání souhlasu oznámíte na mou shora uvedenou
+                    e-mailovou adresu, a v případě cookies tím, že ve svém prohlížeči nebo prostřednictvím cookie lišty
+                    umístěné na mých webových stránkách ukládání těchto cookies zakážete. Pokud ovšem Vaše osobní údaje
+                    zpracovávám i na základě jiných právních titulů uvedených pod písmeny A až E výše, budu je na
+                    základě tohoto příslušného titulu zpracovávat i po odvolání Vašeho souhlasu.</span>
+                </li>
+              </ol>
+            </div>
           </div>
 
-          <!-- V. Příjemci -->
+          <!-- V. Automatizované rozhodování a profilování -->
           <div class="gdpr-section">
             <div class="gdpr-section-header">
               <span class="gdpr-section-num" aria-hidden="true">V.</span>
-              <h2>Příjemci osobních údajů (subdodavatelé správce)</h2>
+              <h2>Automatizované rozhodování a profilování</h2>
             </div>
             <ol>
               <li>
-                <span class="li-body">
-                  Příjemci osobních údajů jsou osoby:
-                  <ul>
-                    <li>podílející se na dodání zboží&nbsp;/ služeb&nbsp;/ realizaci plateb na základě smlouvy,</li>
-                    <li>podílející se na zajištění provozu služeb,</li>
-                    <li>zajišťující marketingové služby.</li>
-                  </ul>
-                </span>
-              </li>
-              <li>
-                <span class="li-body">Správce nemá v úmyslu předat osobní údaje do třetí země (do země mimo EU) nebo mezinárodní organizaci. Příjemci osobních údajů ve třetích zemích jsou poskytovatelé mailingových služeb&nbsp;/ cloudových služeb.</span>
+                <span class="li-body">Z mé strany nedochází k automatizovanému individuálnímu rozhodování ve smyslu
+                  čl.&nbsp;22 GDPR.</span>
               </li>
             </ol>
           </div>
 
-          <!-- VI. Vaše práva -->
+          <!-- VI. Cookies -->
           <div class="gdpr-section">
             <div class="gdpr-section-header">
               <span class="gdpr-section-num" aria-hidden="true">VI.</span>
+              <h2>Cookies</h2>
+            </div>
+            <ol>
+              <li>
+                <span class="li-body">Při užívání webových stránek používám cookies a další související technologie.
+                  Cookies jsou obsahově malé soubory, které slouží k ukládání a přijímání identifikátorů a dalších
+                  informací o zařízeních, z nichž přistupujete na mé webové stránky.</span>
+              </li>
+              <li>
+                <span class="li-body">Používám pouze technické soubory cookies nezbytné pro správné fungování webových
+                  stránek a CDN služby třetích stran pro načítání písem (Google Fonts, Font Awesome). Tyto cookies mohou
+                  být umístěny bez Vašeho souhlasu, neboť jsou nezbytné pro provoz webu. Analytické ani marketingové
+                  cookies nepoužívám.</span>
+              </li>
+              <li>
+                <span class="li-body">Využití cookies můžete v nastavení svého internetového prohlížeče přijmout nebo
+                  odmítnout.</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- VII. Příjemci osobních údajů -->
+          <div class="gdpr-section">
+            <div class="gdpr-section-header">
+              <span class="gdpr-section-num" aria-hidden="true">VII.</span>
+              <h2>Příjemci osobních údajů</h2>
+            </div>
+            <ol>
+              <li>
+                <span class="li-body">Pokud Vaše osobní údaje sdílím s jinou osobou, dbám na to, aby byla zajištěna
+                  jejich ochrana.</span>
+              </li>
+              <li>
+                <span class="li-body">Vzhledem k tomu, že veškeré činnosti v rámci svého podnikání nedokáži zajistit
+                  vlastními silami, využívám služeb a aplikací třetích osob, které tak získají k Vašim osobním údajům
+                  přístup. S těmito osobami mám uzavřeny příslušné smlouvy podle GDPR.</span>
+              </li>
+              <li>
+                <span class="li-body">
+                  Konkrétně se jedná o následující příjemce osobních údajů:
+                  <ul class="gdpr-alpha-list">
+                    <li><span class="alpha-label">a)</span> <span>webhosting a doména: Webkitty hosting s.r.o.</span>
+                    </li>
+                    <li><span class="alpha-label">b)</span> <span>e-mailing:</span></li>
+                    <li><span class="alpha-label">c)</span> <span>fakturační systém:</span></li>
+                    <li><span class="alpha-label">d)</span> <span>rezervační systém:</span></li>
+                    <li><span class="alpha-label">e)</span> <span>platební brána:</span></li>
+                    <li><span class="alpha-label">f)</span> <span>e-shopová platforma:</span></li>
+                    <li><span class="alpha-label">g)</span> <span>přeprava zboží:</span></li>
+                    <li><span class="alpha-label">h)</span> <span>sociální sítě:</span></li>
+                    <li><span class="alpha-label">i)</span> <span>virtuální asistentka</span></li>
+                    <li><span class="alpha-label">j)</span> <span>účetní firma</span></li>
+                    <li><span class="alpha-label">k)</span> <span>marketingová firma</span></li>
+                    <li><span class="alpha-label">l)</span> <span>IT firma</span></li>
+                    <li><span class="alpha-label">m)</span> <span>cloudové úložiště</span></li>
+                  </ul>
+                </span>
+              </li>
+              <li>
+                <span class="li-body">Vaše osobní údaje budou zpřístupněny i příslušným správním orgánům nebo soudům,
+                  případně právním zástupcům, abych splnila svou zákonnou povinnost nebo ochránila svá práva a oprávněné
+                  zájmy.</span>
+              </li>
+              <li>
+                <span class="li-body">Pokud by v budoucnu došlo k využívání dalších aplikací nebo služeb jiných osob,
+                  budu při jejich výběru dbát na to, aby byl zachován standard zabezpečení a zpracování osobních
+                  údajů.</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- VIII. Předávání osobních údajů do třetí země nebo mezinárodní organizaci -->
+          <div class="gdpr-section">
+            <div class="gdpr-section-header">
+              <span class="gdpr-section-num" aria-hidden="true">VIII.</span>
+              <h2>Předávání osobních údajů do třetí země nebo mezinárodní organizaci</h2>
+            </div>
+            <p class="gdpr-text">Jelikož využívám některé zahraniční zpracovatele, mohou být Vaše osobní údaje předávány
+              do třetích zemí, a to do Spojených států amerických. Dne 10.&nbsp;7.&nbsp;2023 přijala Evropská komise
+              rozhodnutí o odpovídající úrovni ochrany osobních údajů ve smyslu čl.&nbsp;45 odst.&nbsp;3 GDPR. Podle něj
+              Spojené státy americké zajišťují odpovídající úroveň ochrany osobním údajům předávaným z Evropské unie
+              organizacím ve Spojených státech amerických, které jsou zapsány na příslušném seznamu, tzv. Data Privacy
+              Framework List. Zpracovatelé, jako například společnost Google, jsou na tomto seznamu zapsáni, čímž je
+              zajištěna odpovídající úroveň ochrany Vašich osobních údajů.</p>
+          </div>
+
+          <!-- IX. Zabezpečení osobních údajů -->
+          <div class="gdpr-section">
+            <div class="gdpr-section-header">
+              <span class="gdpr-section-num" aria-hidden="true">IX.</span>
+              <h2>Zabezpečení osobních údajů</h2>
+            </div>
+            <ol>
+              <li>
+                <span class="li-body">Jako správce jsem přijala veškerá technická a organizační opatření k zabezpečení
+                  Vašich osobních údajů, aby nemohlo dojít k náhodnému nebo protiprávnímu přístupu k Vašim osobním
+                  údajům, k jejich změně, zničení či ztrátě, k jejich neoprávněnému zpracování či k jejich jinému
+                  zneužití. Přijatá technická a organizační opatření odpovídají míře rizika pro práva a svobody
+                  fyzických osob, povaze, rozsahu a účelům zpracování osobních údajů.</span>
+              </li>
+              <li>
+                <span class="li-body">
+                  K zabezpečení Vašich osobních údajů jsem přijala zejména následující technická a organizační opatření:
+                  <ul>
+                    <li>ochrana přístupu k výpočetní technice, jíž jsou zpracovávány osobní údaje, individuálními
+                      silnými hesly a ochrana těchto hesel před vyzrazením;</li>
+                    <li>ochrana této výpočetní techniky antivirovými programy;</li>
+                    <li>ochrana přenosné výpočetní techniky nebo přenosných úložišť dat (dohled, zaheslování dat atd.);
+                    </li>
+                    <li>uzamykání prostor, v nichž jsou uloženy dokumenty s osobními údaji;</li>
+                    <li>svěření přístupu k osobním údajům pouze pověřeným osobám, které jsou vázány povinností
+                      zachovávat mlčenlivost o Vašich osobních údajích i přijatých bezpečnostních opatřeních.</li>
+                  </ul>
+                </span>
+              </li>
+              <li>
+                <span class="li-body">Zavedená technická a organizační opatření jsou pravidelně testována a je
+                  posuzována a hodnocena jejich účinnost pro zajištění bezpečnosti zpracování osobních údajů.</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- X. Vaše práva -->
+          <div class="gdpr-section">
+            <div class="gdpr-section-header">
+              <span class="gdpr-section-num" aria-hidden="true">X.</span>
               <h2>Vaše práva</h2>
             </div>
             <ol>
               <li>
                 <span class="li-body">
-                  Za podmínek stanovených v GDPR máte:
-                  <ul>
-                    <li>právo na přístup ke svým osobním údajům dle čl.&nbsp;15 GDPR,</li>
-                    <li>právo opravu osobních údajů dle čl.&nbsp;16 GDPR, popřípadě omezení zpracování dle čl.&nbsp;18 GDPR,</li>
-                    <li>právo na výmaz osobních údajů dle čl.&nbsp;17 GDPR,</li>
-                    <li>právo vznést námitku proti zpracování dle čl.&nbsp;21 GDPR,</li>
-                    <li>právo na přenositelnost údajů dle čl.&nbsp;20 GDPR,</li>
-                    <li>právo odvolat souhlas se zpracováním písemně nebo elektronicky na adresu nebo email správce uvedený v čl.&nbsp;III těchto podmínek.</li>
+                  Ve vztahu ke zpracování osobních údajů máte následující práva:
+                  <ul class="gdpr-alpha-list">
+                    <li>
+                      <span class="alpha-label">a)</span>
+                      <span><strong>Právo na přístup k osobním údajům (čl.&nbsp;15 GDPR)</strong><br>Máte právo získat
+                        informaci, zda Vaše osobní údaje jsou či nejsou zpracovávány, a pokud zpracovávány jsou, máte
+                        právo na přístup k osobním údajům a na podrobnosti týkající se zpracování Vašich osobních
+                        údajů.</span>
+                    </li>
+                    <li>
+                      <span class="alpha-label">b)</span>
+                      <span><strong>Právo na opravu, resp. doplnění osobních údajů (čl.&nbsp;16 GDPR)</strong><br>Máte
+                        právo požadovat, abych opravila nepřesné osobní údaje, které se Vás týkají, a s přihlédnutím k
+                        účelům zpracování máte rovněž právo na doplnění neúplných osobních údajů.</span>
+                    </li>
+                    <li>
+                      <span class="alpha-label">c)</span>
+                      <span><strong>Právo na výmaz osobních údajů (čl.&nbsp;17 GDPR)</strong><br>Máte právo požadovat,
+                        abych vymazala osobní údaje, které se Vás týkají, a pokud je dán některý z důvodů uvedených v
+                        čl.&nbsp;17 GDPR, mám povinnost Vaše osobní údaje na základě Vaší žádosti vymazat.</span>
+                    </li>
+                    <li>
+                      <span class="alpha-label">d)</span>
+                      <span><strong>Právo na omezení zpracování osobních údajů (čl.&nbsp;18 GDPR)</strong><br>Jsou-li
+                        splněny podmínky stanovené v čl.&nbsp;18 GDPR, máte právo na to, abych omezila zpracování Vašich
+                        osobních údajů.</span>
+                    </li>
+                    <li>
+                      <span class="alpha-label">e)</span>
+                      <span><strong>Právo na přenositelnost osobních údajů (čl.&nbsp;20 GDPR)</strong><br>Pokud je
+                        zpracování Vašich osobních údajů prováděno automatizovaně, a zároveň je založeno na souhlasu
+                        nebo na smlouvě, máte právo získat osobní údaje, které se Vás týkají, ve strukturovaném, běžně
+                        používaném a strojově čitelném formátu, a předat je jinému správci. Je-li to technicky
+                        proveditelné, máte rovněž právo požadovat, abych Vaše osobní údaje sama předala jinému
+                        správci.</span>
+                    </li>
+                    <li>
+                      <span class="alpha-label">f)</span>
+                      <span><strong>Právo vznést námitku proti zpracování osobních údajů (čl.&nbsp;21
+                          GDPR)</strong><br>Za podmínek uvedených v čl.&nbsp;21 GDPR máte právo kdykoli vznést námitku
+                        proti zpracování osobních údajů. Pokud vznesete námitku proti zpracování osobních údajů pro
+                        účely přímého marketingu, vč. profilování, nebudu již Vaše osobní údaje pro tyto účely
+                        zpracovávat.</span>
+                    </li>
+                    <li>
+                      <span class="alpha-label">g)</span>
+                      <span><strong>Právo odvolat souhlas se zpracováním osobních údajů</strong><br>Pokud jsou osobní
+                        údaje zpracovávány na základě Vašeho souhlasu, máte právo kdykoli svůj souhlas se zpracováním
+                        osobních údajů odvolat. Odvoláním souhlasu není dotčena zákonnost zpracování založená na dříve
+                        uděleném souhlasu.</span>
+                    </li>
+                    <li>
+                      <span class="alpha-label">h)</span>
+                      <span><strong>Právo podat stížnost k Úřadu pro ochranu osobních údajů</strong><br>V případě, že se
+                        domníváte, že bylo porušeno Vaše právo na ochranu osobních údajů, máte právo podat stížnost k
+                        Úřadu pro ochranu osobních údajů (<a
+                          href="https://uoou.gov.cz/">https://uoou.gov.cz/</a>).</span>
+                    </li>
                   </ul>
                 </span>
               </li>
               <li>
-                <span class="li-body">Dále máte právo podat stížnost u Úřadu pro ochranu osobních údajů v případě, že se domníváte, že bylo porušeno Vaší právo na ochranu osobních údajů.</span>
+                <span class="li-body">Svá práva můžete u mě uplatnit s využitím kontaktů uvedených výše (poštovní či
+                  e-mailová adresa). Před vyřízením Vaší žádosti Vás mohu ještě kontaktovat, a to za tím účelem, abych
+                  si přiměřeným způsobem ověřila Vaši totožnost.</span>
               </li>
             </ol>
           </div>
 
-          <!-- VII. Podmínky zabezpečení -->
+          <!-- XI. Závěrečná ustanovení -->
           <div class="gdpr-section">
             <div class="gdpr-section-header">
-              <span class="gdpr-section-num" aria-hidden="true">VII.</span>
-              <h2>Podmínky zabezpečení osobních údajů</h2>
-            </div>
-            <ol>
-              <li>
-                <span class="li-body">Správce prohlašuje, že přijal veškerá vhodná technická a organizační opatření k zabezpečení osobních údajů.</span>
-              </li>
-              <li>
-                <span class="li-body">Správce přijal technická opatření k zabezpečení datových úložišť a úložišť osobních údajů v listinné podobě, např. použití antivirových programů, bezpečné uložení záloh, bezpečná přístupová hesla apod.</span>
-              </li>
-              <li>
-                <span class="li-body">Správce prohlašuje, že k osobním údajům mají přístup pouze jím pověřené osoby.</span>
-              </li>
-            </ol>
-          </div>
-
-          <!-- VIII. Závěrečná ustanovení -->
-          <div class="gdpr-section">
-            <div class="gdpr-section-header">
-              <span class="gdpr-section-num" aria-hidden="true">VIII.</span>
+              <span class="gdpr-section-num" aria-hidden="true">XI.</span>
               <h2>Závěrečná ustanovení</h2>
             </div>
             <ol>
               <li>
-                <span class="li-body">Odesláním objednávky z internetového objednávkového formuláře potvrzujete, že jste seznámen/a s podmínkami ochrany osobních údajů a že je v celém rozsahu přijímáte.</span>
+                <span class="li-body">Tyto zásady zpracování osobních údajů jsem oprávněna v přiměřeném rozsahu změnit.
+                  Jejich aktuální znění naleznete na mých shora uvedených webových stránkách.</span>
               </li>
               <li>
-                <span class="li-body">S těmito podmínkami souhlasíte zaškrtnutím souhlasu prostřednictvím internetového formuláře. Zaškrtnutím souhlasu potvrzujete, že jste seznámen/a s podmínkami ochrany osobních údajů a že je v celém rozsahu přijímáte.</span>
-              </li>
-              <li>
-                <span class="li-body">Správce je oprávněn tyto podmínky změnit. Novou verzi podmínek ochrany osobních údajů zveřejní na svých internetových stránkách, případně Vám zašle novou verzi těchto podmínek na e-mailovou adresu, kterou jste správci poskytl/a.</span>
+                <span class="li-body">Tyto zásady zpracování osobních údajů nabývají účinnosti dnem
+                  1.&nbsp;5.&nbsp;2026.</span>
               </li>
             </ol>
 
             <div class="gdpr-effectivity">
               <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
-              <span>Tyto podmínky nabývají účinnosti dnem <strong>1.&nbsp;5.&nbsp;2026</strong>.</span>
+              <span>Tyto zásady nabývají účinnosti dnem <strong>1.&nbsp;5.&nbsp;2026</strong>.</span>
             </div>
           </div>
 
@@ -531,28 +930,33 @@
         <!-- Pravý sloupec: Navigace a odkaz zpět -->
         <div class="footer-form">
           <h3>Navigace</h3>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); margin-bottom: var(--sp-6);">
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); margin-bottom: var(--sp-6);">
             <li>
               <a href="/#sluzby" style="font-size: 0.95rem; font-weight: 500; text-decoration: none;">
-                <i class="fa-solid fa-arrow-right" aria-hidden="true" style="font-size: 0.75rem; margin-right: 6px; color: var(--clr-mid);"></i>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"
+                  style="font-size: 0.75rem; margin-right: 6px; color: var(--clr-mid);"></i>
                 S čím můžu pomoci
               </a>
             </li>
             <li>
               <a href="/#cenik" style="font-size: 0.95rem; font-weight: 500; text-decoration: none;">
-                <i class="fa-solid fa-arrow-right" aria-hidden="true" style="font-size: 0.75rem; margin-right: 6px; color: var(--clr-mid);"></i>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"
+                  style="font-size: 0.75rem; margin-right: 6px; color: var(--clr-mid);"></i>
                 Za kolik
               </a>
             </li>
             <li>
               <a href="/#o-mne" style="font-size: 0.95rem; font-weight: 500; text-decoration: none;">
-                <i class="fa-solid fa-arrow-right" aria-hidden="true" style="font-size: 0.75rem; margin-right: 6px; color: var(--clr-mid);"></i>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"
+                  style="font-size: 0.75rem; margin-right: 6px; color: var(--clr-mid);"></i>
                 Kdo jsem
               </a>
             </li>
             <li>
               <a href="/#kontakt" style="font-size: 0.95rem; font-weight: 500; text-decoration: none;">
-                <i class="fa-solid fa-arrow-right" aria-hidden="true" style="font-size: 0.75rem; margin-right: 6px; color: var(--clr-mid);"></i>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"
+                  style="font-size: 0.75rem; margin-right: 6px; color: var(--clr-mid);"></i>
                 Kontakt
               </a>
             </li>
