@@ -54,8 +54,8 @@ ErrorDocument 404 /404.html
         object-src 'none'; \
         base-uri 'self';"
 
-    # HSTS – HTTPS povinné (povolte až po nasazení HTTPS certifikátu)
-    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    # HSTS – HTTPS povinné (zabrání downgrade útoku na HTTP)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
 
 # --- Gzip komprese ---
